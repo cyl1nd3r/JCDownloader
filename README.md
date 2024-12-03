@@ -6,27 +6,36 @@ This CLI program allows you to download comic images from a specified URL or a l
 
 **Please be aware that downloading or distributing comics from unofficial or unauthorized sources, such as JComic sites, may be illegal in your country. We do not encourage or endorse the use of this script for illegal activities. This script is for educational purposes only. Always ensure that you have the proper rights and permissions before downloading any content.**
 
+## Supported Websites
+
+- `jcomic.net`
+- `manwa.me`
+
 ## Requirements
 
-- Python 3.x
+- Python 3
 - Required libraries:
   - `requests`: To make HTTP requests and download images.
   - `BeautifulSoup` from `bs4`: To parse HTML and extract image links.
-  - `argparse`: To handle command-line arguments.
+  - `selenium`: To crawl websites that are hard to fetch by `requests`.
 
 You can install the required libraries using `pip`:
 
 ```bash
-pip install requests beautifulsoup4
+pip install requests beautifulsoup4 selenium
 ```
 
 ## Usage
 
 ### Command-line Arguments
 
-1. **`--file`**: Path to a file containing a list of URLs to download comics from.
-2. **`--urls`**: URL to a webpage containing links to comic pages (e.g. `https://jcomic.net/author/XXX`).
-3. **`--url`**: A single URL from which to download comic images (e.g. `https://jcomic.net/page/XXX`).
+1. **`--file`**: Path to a file containing a list of URLs (each line contains one url) to download comics from.
+2. **`--urls`**: URL to a webpage containing links to comic pages:
+   - `JComic`: `https://jcomic.net/author/XXX` or `https://jcomic.net/eps/XXX`
+   - `Manwa`: `https://manwa.me/book/XXX`
+3. **`--url`**: A single URL from which to download comic images:
+   - `JComic`: `https://jcomic.net/page/XXX`
+   - `Manwa`: `https://manwa.me/chapter/XXX`
 4. **`--savedir`**: Directory to save downloaded images. Default is `images`.
 
 ### Example Commands
